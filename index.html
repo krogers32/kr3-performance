@@ -82,7 +82,10 @@
             align-items: center;
             gap: 30px;
         }
-
+        .hero-logo-block {
+            text-align: center;
+            margin-bottom: 20px;
+        }
         .hero-text {
             flex: 1 1 300px;
             text-align: left;
@@ -106,15 +109,15 @@
         .hero-subtitle {
             font-size: 1rem;
             color: #555;
-            margin-bottom: auto 20px;
+            margin-bottom: 20px;
             max-width: 600px;
         }
 
         .hero-buttons {
             display: flex;
-            justify-content: flex-start;
+            flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 10px;
+            justify-content: flex-start;
         }
 
         .btn {
@@ -339,6 +342,7 @@
 <section class="section" id="home">
     <div class="hero">
 
+        <div class="hero-logo-block"></div>
         <div class="hero-text">
             <div style="font-weight:800; font-size:2.5rem; color:#D7263D;">
                 KR3 <span style="font-weight:600; font-size:1.2rem;">PERFORMANCE</span>
