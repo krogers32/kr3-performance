@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KR3 Performance | Elite Youth Baseball Coaching</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <style>
         :root {
             --primary-red: #D7263D;
@@ -12,6 +16,10 @@
             --text-light: #FFFFFF;
             --bg-light: #FFFFFF;
             --bg-soft: #F9F9F9;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         * {
@@ -25,6 +33,16 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
         /* Navbar */
@@ -48,7 +66,7 @@
 
         .nav-logo {
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             letter-spacing: 1px;
         }
 
@@ -65,6 +83,12 @@
 
         .nav-links a:hover {
             color: var(--primary-red);
+        }
+
+        .mobile-menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
         }
 
         /* Layout helpers */
@@ -297,14 +321,28 @@
             color: #777;
         }
 
-        /* Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
+            .mobile-menu-icon {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
+                flex-direction: column;
+                background: white;
+                padding: 20px;
+                border-top: 1px solid #eee;
             }
+
+            .nav-links.open {
+                display: flex;
+            }
+
             .section {
                 padding: 40px 18px;
             }
+
             .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -312,14 +350,20 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
     <header>
         <div class="nav">
             <div class="nav-logo">
-                <div style="font-weight:800; font-size:2rem; color:#D7263D; letter-spacing:1px;"></div>
-                KR3 <span>Performance</span>
+                <span style="color:#D7263D;">KR3</span> Performance
+            </div>
+
+            <div class="mobile-menu-icon" onclick="document.querySelector('.nav-links').classList.toggle('open');">
+                ☰
+            </div>
+
             <nav class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -330,32 +374,42 @@
         </div>
     </header>
 
-    <!-- Hero / Home -->
-    <section class="section" id="home">
+    <!-- Hero -->
+    <section class="section fade-in" id="home">
         <div class="hero">
             <div class="hero-text">
-                <div style="text-align:center; margin-bottom:15px;"> <div style="font-weight:800; font-size:2.5rem; color:#D7263D;"> KR3 <span style="font-weight:600; font-size:1.2rem;">PERFORMANCE</span> </div> 
+
+                <div style="text-align:center; margin-bottom:15px;">
+                    <div style="font-weight:800; font-size:2.5rem; color:#D7263D;">
+                        KR3 <span style="font-weight:600; font-size:1.2rem;">PERFORMANCE</span>
+                    </div>
+                </div>
+
+                <div style="height:20px;"></div>
+
                 <div class="hero-tag">Elite Youth Baseball Coaching</div>
+
                 <h1>Build complete ballplayers. On the field and in the mind.</h1>
+
                 <p class="hero-subtitle">
-                    KR3 Performance helps youth athletes sharpen mechanics, grow confidence, 
+                    KR3 Performance helps youth athletes sharpen mechanics, grow confidence,
                     and play the game the right way — with intent, discipline, and joy.
                 </p>
 
                 <div class="hero-buttons">
-                    <!-- TODO: replace # with your real booking URL -->
                     <a href="#booking" class="btn btn-primary">Book a Session</a>
                     <a href="#contact" class="btn btn-outline">Contact Coach</a>
                 </div>
+
                 <div class="hero-note">
                     Serving Humble, Atascocita, Kingwood & North Houston.
                 </div>
             </div>
 
-            <div class="hero-card">
+            <div class="hero-card fade-in">
                 <h2>Former D1 Athlete • Dedicated Coach</h2>
                 <p>
-                    Private training tailored for youth players looking to level up their game 
+                    Private training tailored for youth players looking to level up their game
                     and understand the work it takes to get there.
                 </p>
                 <ul>
@@ -368,7 +422,7 @@
     </section>
 
     <!-- About -->
-    <section class="section" id="about">
+    <section class="section fade-in" id="about">
         <h2 class="section-title">About KR3 Performance</h2>
         <p class="section-subtitle">
             Built from real on-field experience and a passion for developing the next generation of ballplayers.
@@ -382,16 +436,17 @@
                 </p>
                 <br>
                 <p>
-                    As a former Division I player at Prairie View A&M, I know firsthand what it takes 
-                    to compete at a high level. My goal is to take that knowledge, simplify it, and 
+                    As a former Division I player at Prairie View A&M, I know firsthand what it takes
+                    to compete at a high level. My goal is to take that knowledge, simplify it, and
                     deliver it in a way that youth players can actually use.
                 </p>
                 <br>
                 <p>
-                    Sessions are structured, intentional, and encouraging — players work, learn, and 
+                    Sessions are structured, intentional, and encouraging — players work, learn, and
                     leave with clear takeaways they can apply in games and practices.
                 </p>
             </div>
+
             <div class="about-highlight">
                 <strong>What parents can expect:</strong><br><br>
                 • Clear communication and honest feedback<br>
@@ -403,7 +458,7 @@
     </section>
 
     <!-- Services -->
-    <section class="section" id="services">
+    <section class="section fade-in" id="services">
         <h2 class="section-title">Training Services</h2>
         <p class="section-subtitle">
             Sessions are tailored by age, experience level, and goals — from first-timers to serious competitors.
@@ -414,31 +469,34 @@
                 <div class="card-tag">Hitting</div>
                 <h3>Private Hitting Sessions</h3>
                 <p>
-                    Swing mechanics, approach, timing, and barrel control. Drills that build repeatable swings 
+                    Swing mechanics, approach, timing, and barrel control. Drills that build repeatable swings
                     and in-game confidence at the plate.
                 </p>
             </div>
+
             <div class="card">
                 <div class="card-tag">Defense</div>
                 <h3>Fielding & Footwork</h3>
                 <p>
-                    Infield and outfield work focusing on footwork, glove presentation, transitions, and 
+                    Infield and outfield work focusing on footwork, glove presentation, transitions, and
                     throwing mechanics that translate on game day.
                 </p>
             </div>
+
             <div class="card">
                 <div class="card-tag">Remote</div>
                 <h3>Video Breakdown</h3>
                 <p>
-                    Send game or practice clips for detailed breakdowns, corrections, and drill recommendations. 
+                    Send game or practice clips for detailed breakdowns, corrections, and drill recommendations.
                     Perfect for remote players.
                 </p>
             </div>
+
             <div class="card">
                 <div class="card-tag">Mindset</div>
                 <h3>Confidence & Game IQ</h3>
                 <p>
-                    Teach players how to think the game, handle failure, and build routines that support 
+                    Teach players how to think the game, handle failure, and build routines that support
                     long-term development.
                 </p>
             </div>
@@ -446,7 +504,7 @@
     </section>
 
     <!-- Booking -->
-    <section class="section" id="booking">
+    <section class="section fade-in" id="booking">
         <h2 class="section-title">Book a Session</h2>
         <p class="section-subtitle">
             Ready to get to work? Choose your session type and lock in your spot.
@@ -454,13 +512,17 @@
 
         <div class="booking-box">
             <p>
-                All sessions are appointment-based. Click the button below to view open time slots 
+                All sessions are appointment-based. Click the button below to view open time slots
                 and reserve your session.
             </p>
-            <!-- TODO: Replace # with your actual booking site URL -->
-            <a href="https://calendly.com/kr3performance" class="btn btn-primary" target="_blank" style="background-color:#fff; color:var(--primary-red); border-color:#fff;">
+
+            <a href="https://calendly.com/kr3performance"
+               class="btn btn-primary"
+               target="_blank"
+               style="background-color:#fff; color:var(--primary-red); border-color:#fff;">
                 Go to Booking Page
             </a>
+
             <div class="booking-details" style="margin-top:10px;">
                 Need a team session or small group training? Reach out directly and we can build a custom plan.
             </div>
@@ -468,7 +530,7 @@
     </section>
 
     <!-- Contact -->
-    <section class="section" id="contact">
+    <section class="section fade-in" id="contact">
         <h2 class="section-title">Contact & Social</h2>
         <p class="section-subtitle">
             Have questions about training, availability, or fit for your athlete? Let’s connect.
@@ -479,35 +541,37 @@
                 <div class="contact-item">
                     <span>Location:</span> Humble / Atascocita, TX (serving surrounding greater Houston areas)
                 </div>
+
                 <div class="contact-item">
-                    <!-- TODO: put your real email -->
                     <span>Email:</span> <a href="mailto:kr3performance@gmail.com">kr3performance@gmail.com</a>
                 </div>
-                <div class="contact-item">
-                    <!-- Optional: phone -->
-                    <!-- <span>Phone:</span> (555) 555-5555 -->
-                </div>
+
                 <br>
+
                 <p style="font-size:0.9rem; color:#555;">
-                    Reach out for questions about schedules, groups, remote coaching options, or to talk through 
+                    Reach out for questions about schedules, groups, remote coaching options, or to talk through
                     what your athlete needs most right now.
                 </p>
             </div>
+
             <div>
                 <div style="font-weight:600; margin-bottom:6px;">Follow KR3 Performance:</div>
+
                 <div class="social-links">
-                    <!-- TODO: replace # with your real links -->
-                    <a href="https://www.instagram.com/kr3performance?igsh=MTl5NWFxbjBla2Vtaw%3D%3D&utm_source=qr" target="_blank">Instagram</a>
-                    <a href="https://www.tiktok.com/@kr3performance?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
-                    <a href="https://www.facebook.com/share/1H84F6XxTf/?mibextid=wwXIfr" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/kr3performance" target="_blank">Instagram</a>
+                    <a href="https://www.tiktok.com/@kr3performance" target="_blank">TikTok</a>
+                    <a href="https://www.facebook.com/share/1H84F6XxTf" target="_blank">Facebook</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <img src="kr3-logo.png" alt="KR3 Performance Logo" style="height:40px; margin-bottom:10px;"><br>
-        KR3 Performance &copy; 2026 &middot; Train with purpose.
+        <div style="font-weight:800; font-size:1.5rem; color:#D7263D; margin-bottom:10px;">
+            KR3 <span style="font-weight:600; font-size:1rem;">PERFORMANCE</span>
+        </div>
+        KR3 Performance &copy; 2026 · Train with purpose.
     </footer>
 
 </body>
